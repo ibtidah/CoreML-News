@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,61 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewsML" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNh-YY-qiI">
+                                <rect key="frame" x="144" y="328.5" width="87" height="30"/>
+                                <state key="normal" title="Analyze Text"/>
+                                <connections>
+                                    <action selector="didTapOnAnalyzeButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7T0-4B-ZSB"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsD-s3-MYh">
+                                <rect key="frame" x="68" y="294.5" width="239" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="gJq-Ml-gy6"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter URL For Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N4-A2-mfQ">
+                                <rect key="frame" x="68" y="265" width="174" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-gp-QzD">
+                                <rect key="frame" x="166.5" y="382" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fsD-s3-MYh" firstAttribute="top" secondItem="6N4-A2-mfQ" secondAttribute="bottom" constant="8.5" id="1w1-VA-fN7"/>
+                            <constraint firstItem="6N4-A2-mfQ" firstAttribute="leading" secondItem="fsD-s3-MYh" secondAttribute="leading" id="5dh-mB-Uys"/>
+                            <constraint firstItem="wNh-YY-qiI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="L4Y-ks-zJ0"/>
+                            <constraint firstItem="wNh-YY-qiI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Sxn-xm-jEv"/>
+                            <constraint firstItem="JU4-gp-QzD" firstAttribute="top" secondItem="wNh-YY-qiI" secondAttribute="bottom" constant="23.5" id="iyX-af-QSN"/>
+                            <constraint firstItem="fsD-s3-MYh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="la0-Wg-inB"/>
+                            <constraint firstItem="JU4-gp-QzD" firstAttribute="centerX" secondItem="wNh-YY-qiI" secondAttribute="centerX" id="suu-Ol-lhF"/>
+                            <constraint firstItem="wNh-YY-qiI" firstAttribute="top" secondItem="fsD-s3-MYh" secondAttribute="bottom" constant="4" id="xIG-Xw-q1a"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="urlDescription" destination="JU4-gp-QzD" id="d0U-IT-Uur"/>
+                        <outlet property="urlTextField" destination="fsD-s3-MYh" id="fQR-dK-PN4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
